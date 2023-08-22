@@ -16,3 +16,8 @@ data(murders)
 
 murders %>% ggplot(aes(population,total, label=abb,color=region))+
   geom_label()
+
+
+# First command
+murders %>% ggplot(aes(population,total, label=abb))+
+  geom_label()

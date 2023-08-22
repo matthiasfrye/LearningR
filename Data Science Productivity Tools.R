@@ -18,6 +18,10 @@ murders %>% ggplot(aes(population,total, label=abb,color=region))+
   geom_label()
 
 
-# First command
+# scatter
 murders %>% ggplot(aes(population,total))+
+  geom_point()
+
+# scatter + color
+murders %>% ggplot(aes(population,total, color=region))+
   geom_point()

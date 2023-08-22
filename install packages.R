@@ -9,7 +9,7 @@ install.packages("titanic")
 install.packages("gtools")
 install.packages("markdown")
 
-#FOM
+#FOM Quantitative Methoden
 install.packages("mosaic") # Diesen Befehl bei jeder Session am Anfang ausführen
 install.packages("readr")
 install.packages("gplots")

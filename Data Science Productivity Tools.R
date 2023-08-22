@@ -19,5 +19,5 @@ murders %>% ggplot(aes(population,total, label=abb,color=region))+
 
 
 # First command
-murders %>% ggplot(aes(population,total, label=abb))+
-  geom_label()
+murders %>% ggplot(aes(population,total))+
+  geom_point()

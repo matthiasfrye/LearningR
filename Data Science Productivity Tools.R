@@ -14,6 +14,7 @@ library(gplots)
 
 data(murders)
 
+#add murder rate in millions
 murders <- murders %>% mutate(rate=total/population*10^6)
 
 murders %>% ggplot(aes(population,total, label=abb,color=region))+

@@ -14,6 +14,8 @@ library(gplots)
 
 data(murders)
 
+murders <- murders %>% mutate(rate=total/population*10^6)
+
 murders %>% ggplot(aes(population,total, label=abb,color=region))+
   geom_label()
 

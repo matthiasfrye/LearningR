@@ -9,6 +9,8 @@ Data Science Probability.R - module 3
 Data Science Inference and Modeling.R - module 4
 Data Science Productivity Tools.R - module 5
 murders - sample project murders from module 5
+report.Rmd - sample r markdown report from module 5
+
 
 Future:
 Data Science Wrangling.R - module 6

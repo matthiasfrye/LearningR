@@ -12,6 +12,7 @@ library(mosaic) # Diesen Befehl bei jeder Session am Anfang ausführen
 library(readr)
 library(gplots)
 
+#load data
 data(murders)
 
 #add murder rate in millions

@@ -29,6 +29,11 @@ load("murders/rda/murders.rda")
 
 ## Murder rate by state 
 
+```{r, echo=FALSE}
+n <- nrow(murders)
+```
+we can see `r n` records.
+
 We note the large state to state variability by generating a barplot showing the murder rate by state:
 
 ```{r murder-rate-by-state, echo=FALSE}

@@ -1,0 +1,13 @@
+
+library(tidyverse) #load also ggplot2
+library(dslabs)
+library(ggthemes)
+library(ggrepel)
+library(gridExtra)
+library(titanic)
+library(gtools)
+
+library(mosaic) # Diesen Befehl bei jeder Session am Anfang ausführen
+library(readr)
+library(gplots)
+

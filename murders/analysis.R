@@ -6,6 +6,7 @@ murders %>% mutate(abb = reorder(abb, rate)) %>%
   geom_bar(width=0.5, stat="identity", color="blue")+
   coord_flip()
 
+#comment
 ggsave("figs/barplot.png")
 
 

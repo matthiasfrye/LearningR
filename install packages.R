@@ -8,6 +8,7 @@ install.packages("gridExtra")
 install.packages("titanic")
 install.packages("gtools")
 install.packages("markdown")
+install.packages("readxl")
 
 
 #FOM Quantitative Methoden

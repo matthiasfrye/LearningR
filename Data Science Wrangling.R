@@ -40,14 +40,14 @@ file.exists(filename)
 # inspect the first 3 lines
 read_lines("murders.csv", n_max = 3)
 
-# read file in CSV format
+# read file in CSV format with tidyverse function creating tibble
 dat <- read_csv(filename)
 
 #read using full path
 dat <- read_csv(fullpath)
 head(dat)
 
-#Ex：
+#Exercise：
 path <- system.file("extdata", package = "dslabs")
 files <- list.files(path)
 files
@@ -58,4 +58,36 @@ filename2 <- "fertility-two-countries-example.csv"
 dat=read.csv(file.path(path, filename))
 dat1=read.csv(file.path(path, filename1))
 dat2=read.csv(file.path(path, filename2))
+# filename is defined in the previous video
 
+# read.csv to import the data - R base function creates data frame
+dat2 <- read.csv(filename)
+class(dat2$abb)
+class(dat2$region)
+
+#load from URL
+url <- "https://raw.githubusercontent.com/rafalab/dslabs/master/inst/extdata/murders.csv"
+dat <- read_csv(url)
+
+#download to tmpfile from URL
+download.file(url, "murders.csv")
+tempfile()
+tmp_filename <- tempfile()
+download.file(url, tmp_filename)
+dat <- read_csv(tmp_filename)
+file.remove(tmp_filename)
+
+
+
+#exercise 1
+filename <- "murders.csv"
+path <- system.file("extdata", package = "dslabs")
+file.copy(file.path(path, "murders.csv"), getwd())
+file.path(path, "murders.csv")
+getwd()
+
+
+url <- "https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data"
+dat <- read_csv(url, col_names = FALSE)
+nrow(dat)
+ncol(dat)

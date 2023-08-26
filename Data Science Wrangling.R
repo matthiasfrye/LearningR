@@ -6,6 +6,7 @@ library(ggrepel)
 library(gridExtra)
 library(titanic)
 library(gtools)
+library(rvest)
 
 library(mosaic) # Diesen Befehl bei jeder Session am Anfang ausführen
 library(readr)
@@ -296,3 +297,103 @@ head(new_tab)
 tab1 <- tab[1:2,]
 tab2 <- tab[3:4,]
 bind_rows(tab1, tab2)
+
+#Set functions
+# intersect vectors or data frames
+intersect(1:10, 6:15)
+intersect(c("a","b","c"), c("b","c","d"))
+tab1 <- tab[1:5,]
+tab2 <- tab[3:7,]
+intersect(tab1, tab2)
+
+# perform a union of vectors or data frames
+union(1:10, 6:15)
+union(c("a","b","c"), c("b","c","d"))
+tab1 <- tab[1:5,]
+tab2 <- tab[3:7,]
+union(tab1, tab2)
+
+# set difference of vectors or data frames
+setdiff(1:10, 6:15)
+setdiff(6:15, 1:10)
+tab1 <- tab[1:5,]
+tab2 <- tab[3:7,]
+setdiff(tab1, tab2)
+
+# setequal determines whether sets have the same elements, regardless of order
+setequal(1:5, 1:6)
+setequal(1:5, 5:1)
+setequal(tab1, tab2)
+
+
+##question 5-7
+library(Lahman)
+top <- Batting %>% 
+  filter(yearID == 2016) %>%
+  arrange(desc(HR)) %>%    # arrange by descending HR count
+  slice(1:10)    # take entries 1-10
+top %>% as_tibble()
+People %>% as_tibble()
+
+top_names <- top %>% left_join(People) %>%
+  select(playerID, nameFirst, nameLast, HR)
+top_names
+Salaries %>% filter(yearID == 2016)
+top_salary <- Salaries %>% filter(yearID == 2016) %>%
+  right_join(top_names) %>%
+  select(nameFirst, nameLast, teamID, HR, salary)
+top_salary
+
+a16 <- AwardsPlayers %>% filter(yearID == 2016)  %>% select(playerID)
+t<- top %>% mutate(p=playerID) %>% select(p) 
+t
+intersect(t,a16)
+nrow(setdiff(a16,t))
+
+
+##Web Scraping
+# import a webpage into R
+library(rvest)
+url <- "https://en.wikipedia.org/wiki/Murder_in_the_United_States_by_state"
+url <- "https://en.wikipedia.org/wiki/Gun_violence_in_the_United_States_by_state"
+h <- read_html(url)
+class(h)
+h
+
+tab <- h %>% html_nodes("table")
+tab #show all tables on pahe
+tab <- tab[[3]]
+
+tab <- tab %>% html_table()
+class(tab)
+
+tab <- tab %>% setNames(c("state", "population", "total", "murders", "gun_murders", "gun_ownership", "total_rate", "murder_rate", "gun_murder_rate"))
+head(tab)
+
+
+#Assessment
+library(rvest)
+url <- "https://web.archive.org/web/20181024132313/http://www.stevetheump.com/Payrolls.htm"
+h <- read_html(url)
+
+nodes <- html_nodes(h, "table")
+sapply(nodes[1:4], html_table) 
+tab_1 <- html_table(nodes[10] ) %>% data.frame() 
+tab_1
+tab_2 <- html_table(nodes[19] ) %>% data.frame() %>% setNames(c("Team", "Payroll", "Average")) 
+tab_2 <- tab_2[-1,]
+tab_2
+
+tt <- full_join(tab_1,tab_2,by="Team")
+nrow(tt)
+
+
+url <- "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_United_Kingdom_European_Union_membership_referendum&oldid=896735054"
+h <- read_html(url)
+class(h)
+tab <- h %>% html_nodes("table")
+tab
+length(tab)
+
+html_table(tab[4], fill=TRUE)
+html_table(tab[6], fill=TRUE)

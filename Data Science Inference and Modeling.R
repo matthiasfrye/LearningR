@@ -658,7 +658,7 @@ se_hat
 ci=estimate+se_hat*c(qnorm(0.025),qnorm(0.975))
 ci
 
-Exercise 16
+#Exercise 16
 # We made an object `res` to summarize the average, standard deviation, and number of polls for the two pollsters.
 res <- polls %>% group_by(pollster) %>% 
   summarize(avg = mean(spread), s = sd(spread), N = n()) 

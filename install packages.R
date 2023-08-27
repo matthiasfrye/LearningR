@@ -10,6 +10,7 @@ install.packages("gtools")
 install.packages("markdown")
 install.packages("readxl")
 install.packages("rvest")
+install.packages("pdftools")
 
 
 #FOM Quantitative Methoden

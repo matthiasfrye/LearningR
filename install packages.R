@@ -11,7 +11,10 @@ install.packages("markdown")
 install.packages("readxl")
 install.packages("rvest")
 install.packages("pdftools")
-
+install.packages("tidytext")
+install.packages("urltools")
+install.packages("lazyeval")
+install.packages("textdata")
 
 #FOM Quantitative Methoden
 install.packages("mosaic") # Diesen Befehl bei jeder Session am Anfang ausführen

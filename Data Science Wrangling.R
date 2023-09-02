@@ -404,6 +404,42 @@ length(tab)
 html_table(tab[4], fill=TRUE)
 html_table(tab[6], fill=TRUE)
 
+### Listen
+l = list(1L, 1.34, "Hallo", 1:3)
+# l ist vom Typ list
+class(l)
+is.list(l)
+length(l)
+l[[1]]
+class(l[[1]])
+l[[4]][1]
+
+#Namen
+names(l) <- c("Tick","Tack","Toe","Foo")
+l[["Tick"]]
+l$Tick
+# Benennung der Elemente direkt beim Erzeugen
+l2 <- list(pi=3.14, euler=2.718, Toe="Hallo", Foo=1:3)
+l2$Foo
+names(l)[3] <- "Tock"
+names(l)
+
+l3 <- list(1,2,3,4,5)
+l3
+# Löschen eines Elements, Liste wird dadurch verändert
+l3[[1]] <- NULL
+l3
+# Element wird nicht mit übergeben, l3 aber nicht verändert
+l4 <- l3[-1]
+l4
+
+l5 <- list("aa", "ab", "ac", "bc")
+str_trim(l5)
+l5 %>% str_trim()
+
+
+
+
 ##Strings
 # read in raw murders data from Wikipedia
 url <- "https://en.wikipedia.org/w/index.php?title=Gun_violence_in_the_United_States_by_state&direction=prev&oldid=810166167"

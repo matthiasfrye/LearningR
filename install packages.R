@@ -16,6 +16,7 @@ install.packages("urltools")
 install.packages("lazyeval")
 install.packages("textdata")
 install.packages("HistData")
+install.packages("caret")
 
 #FOM Quantitative Methoden
 install.packages("mosaic") # Diesen Befehl bei jeder Session am Anfang ausführen

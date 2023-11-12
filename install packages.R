@@ -18,6 +18,8 @@ install.packages("textdata")
 install.packages("HistData")
 install.packages("caret")
 install.packages("gam")
+install.packages("Rborist")
+install.packages("randomForest")
 
 #FOM Quantitative Methoden
 install.packages("mosaic") # Diesen Befehl bei jeder Session am Anfang ausführen

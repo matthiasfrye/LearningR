@@ -20,6 +20,8 @@ install.packages("caret")
 install.packages("gam")
 install.packages("Rborist")
 install.packages("randomForest")
+install.packages("doParallel")
+install.packages("rethnicity")
 
 #FOM Quantitative Methoden
 install.packages("mosaic") # Diesen Befehl bei jeder Session am Anfang ausführen

@@ -22,6 +22,7 @@ install.packages("Rborist")
 install.packages("randomForest")
 install.packages("doParallel")
 install.packages("rethnicity")
+install.packages("naivebayes")
 
 #FOM Quantitative Methoden
 install.packages("mosaic") # Diesen Befehl bei jeder Session am Anfang ausführen
@@ -29,6 +30,8 @@ install.packages("readr")
 install.packages("gplots")
 install.packages("dunn.test")
 
+#Qualitative Methode
+install.packages("DescTools")
 
 #Extras
 install.packages("psych2")
